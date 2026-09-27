@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
+@layer base {
+  :root {
+    --bg-page: #eef2f6;
+    --app-bg: #f7f9fc;
+    --card-surface: #ffffff;
+    --text-main: #111315;
+    --text-muted: #64748b;
+    --border-subtle: #e2e8f0;
+    --lime-accent: #d8ff35;
+    --lime-hover: #c9f518;
+    --dark-solid: #111315;
+    --dark-secondary: #1e2226;
+    --app-max-width: 440px;
+    color-scheme: light;
+  }
+
+  .dark,
+  [data-theme="dark"] {
+    --bg-page: #101215;
+    --app-bg: #16191e;
+    --card-surface: #21262d;
+    --text-main: #f8fafc;
+    --text-muted: #9ba7b6;
+    --border-subtle: #2d333b;
+    --lime-accent: #d8ff35;
+    --lime-hover: #c9f518;
+    --dark-solid: #ffffff;
+    --dark-secondary: #282f38;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: var(--text-main);
+    min-height: 100vh;
+    min-height: 100dvh;
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    height: 100%;
+    overscroll-behavior-y: none;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  #root {
+    min-height: 100%;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Smooth color & surface transitions when toggling theme */
+html,
+body,
+#root,
+#app-container,
+header,
+nav,
+main,
+section,
+article,
+aside,
+div:not([class*="animate-"]),
+button:not([class*="animate-"]),
+input,
+span:not([class*="animate-"]),
+p,
+h1,
+h2,
+h3,
+h4 {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 280ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.font-mono-plate {
+  font-family: 'Space Grotesk', ui-monospace, monospace;
+}
+
+/* Animations for kinetic route */
+@keyframes flowRoute {
+  0% { width: 0%; }
+  70% { width: calc(100% - 54px); }
+  100% { width: calc(100% - 54px); }
+}
+
+@keyframes carDrive {
+  0% { left: 16px; }
+  70% { left: calc(100% - 54px); }
+  100% { left: calc(100% - 54px); }
+}
+
+@keyframes personRun {
+  0% { left: -20px; opacity: 0; transform: translateY(0) rotate(0deg); }
+  10% { left: -20px; opacity: 1; transform: translateY(0) rotate(-10deg); }
+  15%, 25%, 35%, 45%, 55%, 65% { transform: translateY(-3px) rotate(-12deg); }
+  20%, 30%, 40%, 50%, 60%, 70% { transform: translateY(0) rotate(-8deg); }
+  75% { left: calc(100% - 90px); opacity: 1; transform: translateY(0) rotate(-10deg); }
+  85% { opacity: 0; }
+  100% { left: calc(100% - 90px); opacity: 0; }
+}
+
+.animate-flow-route {
+  animation: flowRoute 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-car-drive {
+  animation: carDrive 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-person-run {
+  animation: personRun 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes shake-reject {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px) scale(0.98); }
+  40%, 80% { transform: translateX(8px) scale(0.98); }
+}
+
+.animate-shake-reject {
+  animation: shake-reject 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes scanLaser {
+  0% {
+    transform: translateY(6px) translateZ(0);
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(96px) translateZ(0);
+    opacity: 0.2;
+  }
+}
+
+/* Custom scrollbar hide */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Print Stylesheet for 85x85 mm Windshield QR Sticker */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}

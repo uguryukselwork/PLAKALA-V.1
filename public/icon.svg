@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14171b"/>
+      <stop offset="100%" stop-color="#0b0d0f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Squircle -->
+  <rect width="512" height="512" rx="124" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Outer Rim Border -->
+  <rect x="8" y="8" width="496" height="496" rx="118" fill="none" stroke="#d8ff35" stroke-opacity="0.2" stroke-width="4"/>
+
+  <!-- Neo-Brutalist Badge (IMG_3086.png Design: TR in Top-Left, 'plakala' in Center) -->
+  <g>
+    <!-- Solid Black Drop Shadow (Offset Bottom-Right) -->
+    <rect x="66" y="160" width="404" height="230" rx="46" fill="#000000"/>
+
+    <!-- Main Neon Badge Body -->
+    <rect x="52" y="146" width="404" height="230" rx="46" fill="#d8ff35" stroke="#000000" stroke-width="14"/>
+
+    <!-- TR in Top-Left -->
+    <text x="96" y="210" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Space Grotesk', sans-serif" font-weight="900" font-size="34" fill="#000000" letter-spacing="2">TR</text>
+
+    <!-- 'plakala' in Center -->
+    <text x="254" y="296" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Space Grotesk', sans-serif" font-weight="900" font-size="76" fill="#000000" text-anchor="middle" letter-spacing="-1">plakala</text>
+  </g>
+
+  <!-- Bottom Brand Slogan -->
+  <text x="256" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="18" fill="#8e99a8" text-anchor="middle" letter-spacing="4">KORNAYA GEREK YOK</text>
+</svg>
